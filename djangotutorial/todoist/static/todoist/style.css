@@ -1,0 +1,7 @@
+li a {
+    color: green;
+}
+
+body {
+    background: white url("../../../../djangotutorial/polls/static/polls/images") no-repeat;
+}
