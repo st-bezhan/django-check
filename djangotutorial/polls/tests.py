@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from .models import Question
 
+
 def create_question(question_text, days):
     """
     Create a question with the given `question_text` and published the
@@ -13,6 +14,7 @@ def create_question(question_text, days):
     """
     time = timezone.now() + datetime.timedelta(days=days)
     return Question.objects.create(question_text=question_text, pub_date=time)
+
 
 # Create your tests here.
 class QuestionDetailViewTests(TestCase):
@@ -36,7 +38,7 @@ class QuestionDetailViewTests(TestCase):
         response = self.client.get(url)
         self.assertContains(response, past_question.question_text)
 
-        
+
 class QuestionIndexViewTests(TestCase):
     def test_no_questions(self):
         """If no questions exist, an appropriate message is displayed."""
